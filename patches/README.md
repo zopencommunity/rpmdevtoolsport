@@ -1,4 +1,4 @@
-# PR1: Guard optional Python dependencies (progressbar, requests, rpm); fix z/OS portability
+# PR1: Guard optional Python dependencies (progressbar, requests, rpm); fix z/OS portability; fix `set -e`-unsafe tests in `rpmdev-diff`
 
 ## Problem
 
@@ -48,6 +48,14 @@ on every invocation.
   (e.g. z/OS where `$HOME` is always set via the environment). Also softened
   the error message to not reference `/etc/passwd` specifically.
 
+- **`rpmdev-diff`**: Changed all bare `[[ $var ]]` conditional tests in the
+  option-parsing loop to `[[ -n $var ]]`. Under `set -e`, an empty (unset)
+  variable causes a bare `[[ $var ]]` to return exit code 1, which terminates
+  the script immediately. Using the explicit `-n` (non-empty) test is safe
+  under `set -e` and is the correct idiom for testing whether a variable is set.
+  Affected options: `-l`/`--list`, `-L`/`--long-list`, `-c`/`--contents`,
+  `-m`/`--metadata`, `-h`/`--help`, and `-v`/`--version`.
+
 ## Files changed
 
 - `rpmdev-spectool.patch`
@@ -57,3 +65,4 @@ on every invocation.
 - `rpmdev-sort.patch`
 - `rpmdev-vercmp.patch`
 - `rpmdev-setuptree.patch`
+- `rpmdev-diff-fix-set-e-help-version.patch`

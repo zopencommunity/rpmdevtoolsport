@@ -1,0 +1,54 @@
+diff --git a/rpmdev-diff b/rpmdev-diff
+index f51e2ad..12d55b9 100755
+--- a/rpmdev-diff
++++ b/rpmdev-diff
+@@ -96,35 +96,35 @@ rpm_meta()
+ while true ; do
+     case $1 in
+         -l|--list)
+-            if [[ $list$diffopts ]] ; then
++            if [[ -n $list$diffopts ]] ; then
+                 diffopts+=" $1"
+             else
+                 list=true
+             fi
+             ;;
+         -L|--long-list)
+-            if [[ $long$diffopts ]] ; then
++            if [[ -n $long$diffopts ]] ; then
+                 diffopts+=" $1"
+             else
+                 long=true
+             fi
+             ;;
+         -c|--contents)
+-            if [[ $contents$diffopts ]] ; then
++            if [[ -n $contents$diffopts ]] ; then
+                 diffopts+=" $1"
+             else
+                 contents=true
+             fi
+             ;;
+         -m|--metadata)
+-            if [[ $meta$diffopts ]] ; then
++            if [[ -n $meta$diffopts ]] ; then
+                 diffopts+=" $1"
+             else
+                 meta=true
+             fi
+             ;;
+         -h|--help)
+-            if [[ $diffopts ]] ; then
++            if [[ -n $diffopts ]] ; then
+                 diffopts+=" $1"
+             else
+                 help
+@@ -132,7 +132,7 @@ while true ; do
+             fi
+             ;;
+         -v|--version)
+-            if [[ $diffopts ]] ; then
++            if [[ -n $diffopts ]] ; then
+                 diffopts+=" $1"
+             else
+                 version
