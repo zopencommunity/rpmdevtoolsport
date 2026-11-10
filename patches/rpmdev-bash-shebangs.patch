@@ -1,0 +1,48 @@
+--- a/rpmdev-diff
++++ b/rpmdev-diff
+@@ -1,4 +1,4 @@
+-#!/bin/bash
++#!/usr/bin/env bash
+ # -*- coding: utf-8 -*-
+ 
+ # rpmdev-diff -- Diff contents of two archives
+--- a/rpmdev-extract
++++ b/rpmdev-extract
+@@ -1,4 +1,4 @@
+-#!/bin/bash
++#!/usr/bin/env bash
+ # -*- coding: utf-8 -*-
+ 
+ # TODO: *.pkg ->
+--- a/rpmdev-newinit.in
++++ b/rpmdev-newinit.in
+@@ -1,4 +1,4 @@
+-#!/bin/bash
++#!/usr/bin/env bash
+ 
+ # rpmdev-newinit -- generate new init script from template
+ #
+--- a/rpmdev-newspec.in
++++ b/rpmdev-newspec.in
+@@ -1,4 +1,4 @@
+-#!/bin/bash
++#!/usr/bin/env bash
+ 
+ # rpmdev-newspec -- generate new rpm .spec file from template
+ #
+--- a/rpmdev-packager
++++ b/rpmdev-packager
+@@ -1,4 +1,4 @@
+-#!/bin/bash
++#!/usr/bin/env bash
+ 
+ # rpmdev-packager -- guess rpm packager info from various sources
+ #
+--- a/rpminfo
++++ b/rpminfo
+@@ -1,4 +1,4 @@
+-#!/bin/bash
++#!/usr/bin/env bash
+ #
+ # Prints information for executables and libraries
+ #
