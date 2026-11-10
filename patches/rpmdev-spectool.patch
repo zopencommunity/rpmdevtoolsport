@@ -1,5 +1,5 @@
 diff --git a/rpmdev-spectool b/rpmdev-spectool
-index 2c06ef8..0a96d29 100755
+index 2c06ef8..376cee3 100755
 --- a/rpmdev-spectool
 +++ b/rpmdev-spectool
 @@ -1,4 +1,4 @@
@@ -35,6 +35,20 @@ index 2c06ef8..0a96d29 100755
  
  __version__ = "1.1.0"
  
+@@ -219,11 +233,11 @@ def split_numbers(args: str) -> List[str]:
+ 
+ # simple streamed file download progress tracker inspired by requests_download
+ class ProgressTracker:
+-    def __init__(self, progress_bar: progressbar.ProgressBar) -> None:
++    def __init__(self, progress_bar: "progressbar.ProgressBar") -> None:
+         self.progress_bar = progress_bar
+         self.received = 0
+ 
+-    def on_start(self, response: requests.Response) -> None:
++    def on_start(self, response: "requests.Response") -> None:
+         max_value = None
+ 
+         if "content-length" in response.headers:
 @@ -247,6 +261,8 @@ class ProgressTracker:
  # simple streamed file download implementation inspired by requests_download
  def download(url, target, headers=None,
